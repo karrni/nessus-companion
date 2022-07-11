@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Making Nessus less frustrating :3
 // @author       Karrni
-// @match        https://nessus.pen.test:8834/*
+// @match        https://nessus.pen.test
 // @grant        GM_setClipboard
 // @run-at       document-end
 // ==/UserScript==
