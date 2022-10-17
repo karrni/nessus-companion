@@ -17,9 +17,15 @@ function parseHostsFromRow(row) {
     const portString = row.querySelector(".port > span").innerText;
     port = portString.split(" / ")[0];
 
+    if (port === "N/A") {
+        port = "";
+    } else {
+        port = ":" + port;
+    }
+
     const hosts = [];
     row.querySelectorAll(".hosts-wrapper-hosts > a").forEach(n => {
-        hosts.push(n.dataset.hostId + ':' + port);
+        hosts.push(n.dataset.hostId + port);
     });
 
     return hosts;
