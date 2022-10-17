@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Making Nessus less frustrating :3
 // @author       Karrni
-// @match        https://nessus:8834/
+// @match        https://nessus.pen.test:8834/
 // @grant        GM_addStyle
 // @grant        GM_setClipboard
 // @run-at       document-end
@@ -77,11 +77,6 @@ function addStyles() {
 (function() {
     'use strict';
 
-    const location = window.location.hash;
-
-    // Regexes to match certain subpages
-    const pluginDetailsPageRegex = /^#\/scans\/reports\/\d+\/vulnerabilities\/\d+$/;
-
     addStyles();
 
     const observer = new MutationObserver(function (mutations, mutationInstance) {
@@ -95,10 +90,8 @@ function addStyles() {
             }
 
             // Plugin Details Page
-            if (location.match(pluginDetailsPageRegex)) {
-                if (target.className === "hosts-wrapper-hosts") {
-                    addCopyHostsButton(target);
-                }
+            if (target.className === "hosts-wrapper-hosts") {
+                addCopyHostsButton(target);
             }
         }
     });
